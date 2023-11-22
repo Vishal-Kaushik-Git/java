@@ -19,7 +19,7 @@ public class Abstractions {
       Humans hum = new Humans();
       hum.intelligence();
       
-      Species sep = new Species(); // cannot initiate this because of abstraction
-      sep.intelligence();
+      // Species sep = new Species(); // cannot initiate this because of abstraction
+      // sep.intelligence();
     }
 }
