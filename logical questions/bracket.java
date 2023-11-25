@@ -6,16 +6,17 @@ public class bracket {
         Stack<Character> stc = new Stack<>();
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
-            if (ch == '(' || ch == '{' || ch == '[') {
-                stc.push(ch);
-            } else {
-                if (stc.peek() == '(' || stc.peek() == '{' || stc.peek() == '[') {
+            if(ch == ')' || ch == '}' || ch == ']'){
+                while(stc.peek() != '(' || stc.peek() != '{' || stc.peek() != '['){
                     stc.pop();
                 }
+                stc.pop();
+            }else{
+                stc.push(ch);
             }
             System.out.println(stc);
         }
-        if(stc.size()>0){
+        if(stc.size()>=0){
             return false;
         }else{
             return true;
