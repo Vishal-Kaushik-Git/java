@@ -2,44 +2,33 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class bracket {
-
-    public static boolean isvalid(String str){
-     Stack<Character> stc = new Stack<>();
-        for(int i =0; i<str.length(); i++){
+    public static boolean isValid(String str) {
+        Stack<Character> stc = new Stack<>();
+        for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
-            if(ch == '('){
+            if (ch == '(' || ch == '{' || ch == '[') {
                 stc.push(ch);
-            }else if(ch == '{'){
-                stc.push(ch);
-            }else if(ch == '['){
-                stc.push(ch);
-            }else{
-            if(stc.size()==0){
-                return false;
-            }
-            if(stc.peek() == '('){
-                stc.pop();
-
-            }else if(stc.peek() == '{'){
-                stc.pop();
-              
-            }else if(stc.peek() == '['){
+            } else {
+                if (stc.peek() == '(' || stc.peek() == '{' || stc.peek() == '[') {
                     stc.pop();
                 }
             }
+            System.out.println(stc);
         }
         if(stc.size()>0){
             return false;
+        }else{
+            return true;
         }
-        return true;
-        
     }
 
-    public static void main(String[] args){
-        Scanner sc  = new Scanner(System.in);
-        System.out.println("Enter the string ");
-        String str = sc.nextLine();
-        System.out.println(isvalid(str));
+    public static void main(String[] args) {
+        String str = new String();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Right Paranthesis ");
+        str = sc.nextLine();
+        System.out.println(isValid(str));
         sc.close();
+
     }
 }
