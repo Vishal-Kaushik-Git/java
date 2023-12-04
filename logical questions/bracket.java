@@ -8,20 +8,21 @@ public class bracket {
             char ch = str.charAt(i);   
         if (ch == '(' || ch == '{' || ch == '[') {
                 stc.push(ch);
-            } else if (ch == ')' || ch == '}' || ch == ']') {
-                if (isMatchingPair(stc.peek(), ch)) {
+            } else {
+                if (stc.peek() == '(' || stc.peek() == '{' || stc.peek() == '[') {
                     stc.pop();
                 } else {
                     return false;
                 }
             }
+            
             System.out.println(stc);
         }
-        return stc.isEmpty();
-    }
-
-    public static boolean isMatchingPair(char opening, char closing) {
-        return (opening == '(' && closing == ')') || (opening == '{' && closing == '}') || (opening == '[' && closing == ']');
+        if(stc.size()>0){
+            return false;
+        }else{
+            return true;
+        }
     }
 
     public static void main(String[] args) {
