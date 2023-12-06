@@ -10,7 +10,7 @@ public class trigger extends JFrame implements ActionListener{
     	 btn = new JButton();
     	 
     	 btn.setText("Click here!");
-    	 this.setSize(400,400);
+    	 this.setSize(200,200);
     	 btn.setBounds(0, 0, 100, 50);
     	 this.add(btn);
     	 this.setLayout(null);
